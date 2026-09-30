@@ -1,6 +1,6 @@
 // App shell cache. The page itself is network-first so a new release shows
 // on the next open; icons and fonts are cache-first. API calls are never cached.
-var CACHE = 'bgatt-20260930.123734';
+var CACHE = 'bgatt-20260930.125427';
 var SHELL = ['./', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png'];
 
 self.addEventListener('install', function (e) {
