@@ -1,0 +1,4 @@
+node_modules/
+*.log
+Secrets.js
+SETUP-KEY.txt
