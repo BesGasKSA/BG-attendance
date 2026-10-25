@@ -1,6 +1,6 @@
 // App shell cache. The page itself is network-first so a new release shows
 // on the next open; icons and fonts are cache-first. API calls are never cached.
-var CACHE = 'bgatt-20261025.104024';
+var CACHE = 'bgatt-20261025.111235';
 var SHELL = ['./', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png'];
 
 self.addEventListener('install', function (e) {
@@ -27,5 +27,20 @@ self.addEventListener('fetch', function (e) {
       if (res.ok && (url.origin === location.origin || url.hostname.indexOf('fonts.') >= 0 || url.hostname === 'cdnjs.cloudflare.com' || url.hostname === 'unpkg.com')) { var copy = res.clone(); caches.open(CACHE).then(function (c) { c.put(req, copy); }); }
       return res;
     });
+  }));
+});
+// Push (2026-10-25): the push carries nothing; the text is fixed and the app's bell shows what is waiting. Never a name or a detail.
+self.addEventListener('push', function (e) {
+  e.waitUntil(self.registration.showNotification('لديك جديد بانتظارك · New items waiting', {
+    body: 'افتح التطبيق لترى الطلبات والمهام · Open the app to see your requests and tasks',
+    icon: 'icon-192.png', badge: 'icon-192.png', tag: 'hr-tasks', renotify: true, data: { url: './#home' }
+  }));
+});
+self.addEventListener('notificationclick', function (e) {
+  e.notification.close();
+  var url = new URL((e.notification.data && e.notification.data.url) || './', self.registration.scope).href;
+  e.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(function (list) {
+    for (var i = 0; i < list.length; i++) if (list[i].url.indexOf(self.registration.scope) === 0 && 'focus' in list[i]) return list[i].focus();
+    return self.clients.openWindow(url);
   }));
 });
