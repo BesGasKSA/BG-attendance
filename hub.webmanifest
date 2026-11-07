@@ -1,18 +1,18 @@
 {
-  "id": "./?app=hub",
+  "id": "./platform.html",
   "name": "مركز بصمة · BASMA Hub",
   "short_name": "BASMA Hub",
   "description": "BASMA Hub: the platform console to create and manage organisations.",
   "lang": "ar",
   "dir": "rtl",
-  "start_url": "./?app=hub#platform",
+  "start_url": "./platform.html#platform",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#D9730F",
   "theme_color": "#D9730F",
   "icons": [
-    { "src": "hub-192.png?v=2", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "hub-512.png?v=2", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    { "src": "hub-192.png?v=3", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "hub-512.png?v=3", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ]
 }
