@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "sa.bestgas.rentals",
+      "sha256_cert_fingerprints": [
+        "02:D5:E3:72:DC:7A:74:72:7A:64:F6:DD:47:B3:9E:60:96:93:54:0B:37:93:D9:7A:00:F6:2F:2B:03:DA:49:F9"
+      ]
+    }
+  }
+]
